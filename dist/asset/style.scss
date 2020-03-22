@@ -1,7 +1,6 @@
-body {
+body{
   overflow-x: hidden;
 }
-
 #tast-modal {
   position: absolute;
   margin-top: 5vh;
@@ -10,23 +9,22 @@ body {
 }
 
 #form {
-  border: 3px solid #383838;
+  border: 3px solid rgb(56, 56, 56);
   background-color: white;
 }
 
-.project {
+.project{
   display: block;
   font-family: 'Courier New', Courier, monospace;
-  -webkit-box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.75);
   transition: background 1s;
   -webkit-transition: background 1s;
   -moz-transition: background 1s;
   -ms-transition: background 1s;
   -o-transition: background 1s;
 }
-
-.project:hover {
-  background: #b8b8b8;
+.project:hover{
+  background: rgb(184, 184, 184);
 }
-/*# sourceMappingURL=style.css.map */
