@@ -3,6 +3,16 @@ import { storeProject, getProject } from './storage';
 
 let myTask = [];
 
+
+(function () {
+  if (getProject()) {
+    myTask = getProject();
+  } else {
+    const test = project('general', 1);
+    myTask.push(test);
+  }
+}());
+
 function project(projectTitle, PorjectId) {
   const title = projectTitle;
   const id = PorjectId;
@@ -30,22 +40,6 @@ function createProject() {
   return false;
 }
 
-const deleteProject = (title) => {
-  myTask.forEach(element => {
-    if (element.title === title) {
-      myTask.splice(myTask.indexOf(element), 1);
-    }
-  });
-};
-
-(function () {
-  if (getProject()) {
-    myTask = getProject();
-  } else {
-    const test = project('general', 1);
-    myTask.push(test);
-  }
-}());
 
 const findProject = (title) => {
   let project;
@@ -56,6 +50,14 @@ const findProject = (title) => {
   });
   return project;
 };
+
+const deleteProject = () => {
+  const proj = findProject(dom.getExt());
+  myTask.splice(myTask.indexOf(proj), 1);
+  storeProject(myTask);
+  location.reload(true);
+  console.log("deleted");
+};
 export {
-  project, createProject, myTask, deleteProject, findProject, addTask
+  project, createProject, myTask, deleteProject, findProject, addTask,
 };
