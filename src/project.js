@@ -1,22 +1,6 @@
 import dom from './dom';
 
-const myTask = [{
-  title: 'testing',
-  id: 1,
-  tasks: [],
-  addTask: (task) => {
-    task.id = myTask.tasks.length;
-    myTask.tasks.push(task);
-  },
-}, {
-  title: 'test',
-  id: 1,
-  tasks: [],
-  addTask: (task) => {
-    task.id = myTask.tasks.length;
-    myTask.tasks.push(task);
-  },
-}];
+const myTask = [];
 
 function project(projectTitle, PorjectId) {
   const title = projectTitle;
@@ -51,12 +35,19 @@ const deleteProject = (title) => {
 };
 
 const findProject = (title) => {
+  let project;
   myTask.forEach(element => {
     if (element.title === title) {
-      return element;
+      project = element;
     }
   });
+  return project;
 };
+
+const test = project('testing', 1);
+const test2 = project('test', 1);
+myTask.push(test);
+myTask.push(test2);
 export {
   project, createProject, myTask, deleteProject, findProject,
 };

@@ -19,7 +19,7 @@ function newTask() {
   const priority = dom.getElement('#priority').value;
   // const date = dom.getElement('#date').value;
   const currentProject = findProject('testing');
-  const newTask = task(title, description, priority, "2020-12-10");
+  const newTask = task(title, description, priority, "2020-12-11");
   currentProject.addTask(newTask);
   console.log(currentProject);
 }

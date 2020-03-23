@@ -10,11 +10,11 @@ const dom = (function () {
 
 
   function renderModal() {
-    return getElement('#new-t').addEventListener('click', show );
+    return getElement('#new-t').addEventListener('click', show);
   }
 
   function hideModal() {
-    return getElement('#cancel').addEventListener('click', hide );
+    return getElement('#cancel').addEventListener('click', hide);
   }
 
   function getExt(id) {
@@ -29,13 +29,7 @@ const dom = (function () {
   function renderTasks() {
     const projects = document.querySelectorAll('#p-titles h3');
     projects.forEach(project => {
-      const content = ` <div class="py-2">
-      <h3 class="text-primary text-center">${project.innerText} tasks</h3>
-      <span class="col-6 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary" id="new-t">new task <i
-            class="fas fa-arrow-circle-down    "></i> </button> <button class="btn btn-outline-danger"> detete project
-          <i class="fas fa-recycle    "></i></button></span>
-    </div>`;
-      project.addEventListener('click', () => { getElement('#p-tasks').innerHTML = content; });
+      project.addEventListener('click', () => { getElement('#current-p').innerText = `${project.innerText}`; });
     });
   }
 
