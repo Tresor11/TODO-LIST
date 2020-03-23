@@ -1,26 +1,30 @@
 import dom from './dom';
+import { storeProject, getProject } from './storage';
 
-const myTask = [];
+let myTask = [];
 
 function project(projectTitle, PorjectId) {
   const title = projectTitle;
   const id = PorjectId;
   const tasks = [];
-  const addTask = (task) => {
-    task.id = tasks.length;
-    tasks.push(task);
-  };
   return {
-    title, id, tasks, addTask,
+    title, id, tasks,
   };
 }
+
+const addTask = (project, task) => {
+  task.id = project.tasks.length;
+  project.tasks.push(task);
+};
 
 function createProject() {
   const title = dom.getElement('#project-title').value;
   const newProject = project(title, myTask.length);
   if (myTask.every(el => el.title !== newProject.title)) {
     myTask.push(newProject);
-    dom.renderProject(myTask, 'p-titles');
+    storeProject(myTask);
+    console.log(localStorage);
+    dom.renderProject(getProject(), 'p-titles');
     return true;
   }
   return false;
@@ -34,6 +38,15 @@ const deleteProject = (title) => {
   });
 };
 
+(function () {
+  if (getProject()) {
+    myTask = getProject();
+  } else {
+    const test = project('general', 1);
+    myTask.push(test);
+  }
+}());
+
 const findProject = (title) => {
   let project;
   myTask.forEach(element => {
@@ -43,11 +56,6 @@ const findProject = (title) => {
   });
   return project;
 };
-
-const test = project('testing', 1);
-const test2 = project('test', 1);
-myTask.push(test);
-myTask.push(test2);
 export {
-  project, createProject, myTask, deleteProject, findProject,
+  project, createProject, myTask, deleteProject, findProject, addTask
 };

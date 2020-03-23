@@ -1,7 +1,8 @@
 import dom from './dom';
 import {
-  project, createProject, myTask, deleteProject, findProject,
+  project, createProject, myTask, deleteProject, findProject, addTask,
 } from './project';
+import { storeProject, getProject } from './storage';
 
 function task(taskTitle, taskId, taskDescription, taskPriority, taksDate) {
   const title = taskTitle;
@@ -19,8 +20,10 @@ function newTask() {
   const priority = dom.getElement('#priority').value;
   // const date = dom.getElement('#date').value;
   const currentProject = findProject(dom.getExt());
-  const newTask = task(title, description, priority, "2020-12-11");
-  currentProject.addTask(newTask);
+  const newTask = task(title, description, priority, '2020-12-11');
+  addTask(currentProject, newTask);
+  dom.hide();
+  storeProject(myTask);
   console.log(currentProject.tasks);
 }
 

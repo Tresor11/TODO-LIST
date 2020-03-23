@@ -4,6 +4,7 @@
 import {
   project, createProject, myTask, findProject,
 } from './project';
+import { storeProject, getProject } from './storage';
 
 const dom = (function () {
   function getElement(property) {
@@ -25,8 +26,6 @@ const dom = (function () {
   }
 
 
-
-
   function render(id, cont) {
     getElement(id).innerText = cont;
   }
@@ -34,16 +33,19 @@ const dom = (function () {
   function renderTasks() {
     const projects = document.querySelectorAll('#p-titles h3');
     projects.forEach(project => {
-      let currentTasks = '';
-      findProject(getExt()).tasks.forEach(el => {
-        currentTasks + =` <h5 class="text-center"> <span class="text-muted"> title:</span><br>${el.title}</h5>
+      const currentTasks = findProject(project.innerText).tasks;
+      let currentHtml = '';
+      currentTasks.forEach(element => {
+        currentHtml += `<div class="py-2 task-div">
+        <h5 class="text-center"> <span class="text-muted"> title:</span><br>${element.title}</h5>
         <h5 class="text-center"> <span class="text-muted"> due date:</span><br>23-3-2020</h5>
-        <h5 class="text-center"> <span class="text-muted"> priority:</span><br>${el.priority}</h5>
-        <h5 class="text-center text-break"> <span class="text-muted"> description:</span><br>${el.description}</h5>
+        <h5 class="text-center"> <span class="text-muted"> priority:</span><br>${element.priority}</h5>
+        <h5 class="text-center text-break"> <span class="text-muted"> description:</span>${element.description}</h5>
         <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">new task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger"> detete project
-        </button></span>`;
+        </button></span>
+      </div>`;
       });
-      project.addEventListener('click', () => { getElement('#current-p').innerText = `${project.innerText}`; getElement('#current-tasks').innerHTML = currentTasks; });
+      project.addEventListener('click', () => { getElement('#current-p').innerText = `${project.innerText}`; getElement('#current-tasks').innerHTML = currentHtml; });
     });
   }
 
