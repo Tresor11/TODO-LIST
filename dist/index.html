@@ -18,11 +18,13 @@
   <section>
     <form class="form-inline col-6 m-auto justify-content-around py-2">
       <div class="d-flex">
-        <input type="text" name="project-title" id="project-title" class="form-control" placeholder="new project" aria-describedby="helpId">
-        <button class="btn btn-outline-primary ml-2" type="button" id="create-p">create project <i class="fas fa-pen"></i></button>
+        <input type="text" name="project-title" id="project-title" class="form-control" placeholder="new project"
+          aria-describedby="helpId">
+        <button class="btn btn-outline-primary ml-2" type="button" id="create-p">create project <i
+            class="fas fa-pen"></i></button>
       </div>
     </form>
-    <div id="tast-modal" class="col-12 row">
+    <div id="task-modal" class="col-12 row">
       <form action="" class="col-3 m-auto bg-white p-3 border border-dark" id="form">
         <div class="form-group">
           <label for="title">title</label>
@@ -58,10 +60,29 @@
     </div>
   </section>
   <section class="row">
-    <h4 class="col-6 text-center">projects</h4> <h4 class="col-6 text-center">tasks</h4>
-    <div class=" py-4 col-6" id="p-titles">
+    <h4 class="col-6 text-center">projects</h4>
+    <h4 class="col-6 text-center">tasks</h4>
+    <div class=" py-4 col-6 sticky-top" id="p-titles">
     </div>
-    <div class="py-4 col-6"></div>
+    <div class="py-4 col-6" id="p-tasks">
+
+      <div class="py-2">
+        <h3 class="text-primary text-center">First project tasks</h3>
+        <span class="col-6 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">new task <i
+              class="fas fa-arrow-circle-down    "></i> </button> <button class="btn btn-outline-danger"> detete project
+            <i class="fas fa-recycle    "></i></button></span>
+      </div>
+
+      <div class="py-2 task-div">
+        <h5 class="text-center"> <span class="text-muted"> title:</span><br>Go to school</h5>
+        <h5 class="text-center"> <span class="text-muted"> due date:</span><br>23-3-2020</h5>
+        <h5 class="text-center"> <span class="text-muted"> priority:</span><br>Important</h5>
+        <h5 class="text-center text-break"> <span class="text-muted"> description:</span><br>bababababababababaccccccccccccccccccccccccccccbabababababbabababababababababab</h5>
+        <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">new task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger"> detete project
+        </button></span>
+      </div>
+      
+    </div>
   </section>
   <script src="./main.js"></script>
 </body>

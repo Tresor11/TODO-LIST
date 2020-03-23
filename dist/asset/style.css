@@ -1,8 +1,9 @@
 body {
   overflow-x: hidden;
+  position: relative;
 }
 
-#tast-modal {
+#task-modal {
   position: absolute;
   margin-top: 5vh;
   z-index: 100;
@@ -17,6 +18,7 @@ body {
 .project {
   display: block;
   font-family: 'Courier New', Courier, monospace;
+  border: 1px solid rgba(128, 128, 128, 0.651);
   -webkit-box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
   transition: background 1s;
@@ -24,6 +26,13 @@ body {
   -moz-transition: background 1s;
   -ms-transition: background 1s;
   -o-transition: background 1s;
+}
+
+.task-div {
+  font-family: 'Courier New', Courier, monospace;
+  -webkit-box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(128, 128, 128, 0.651);
 }
 
 .project:hover {
