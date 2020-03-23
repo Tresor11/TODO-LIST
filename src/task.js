@@ -18,10 +18,10 @@ function newTask() {
   const description = dom.getElement('#description').value;
   const priority = dom.getElement('#priority').value;
   // const date = dom.getElement('#date').value;
-  const currentProject = findProject('testing');
+  const currentProject = findProject(dom.getExt());
   const newTask = task(title, description, priority, "2020-12-11");
   currentProject.addTask(newTask);
-  console.log(currentProject);
+  console.log(currentProject.tasks);
 }
 
 export { task, newTask };

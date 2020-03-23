@@ -1,7 +1,9 @@
 /* eslint-disable func-names */
 // eslint-disable-next-line func-names
 // eslint-disable-next-line no-unused-vars
-import { project, createProject, myTask } from './project';
+import {
+  project, createProject, myTask, findProject,
+} from './project';
 
 const dom = (function () {
   function getElement(property) {
@@ -17,10 +19,13 @@ const dom = (function () {
     return getElement('#cancel').addEventListener('click', hide);
   }
 
-  function getExt(id) {
-    const text = getElement(id).innerText;
+  function getExt() {
+    const text = getElement('#current-p').innerText;
     return text;
   }
+
+
+
 
   function render(id, cont) {
     getElement(id).innerText = cont;
@@ -29,7 +34,16 @@ const dom = (function () {
   function renderTasks() {
     const projects = document.querySelectorAll('#p-titles h3');
     projects.forEach(project => {
-      project.addEventListener('click', () => { getElement('#current-p').innerText = `${project.innerText}`; });
+      let currentTasks = '';
+      findProject(getExt()).tasks.forEach(el => {
+        currentTasks + =` <h5 class="text-center"> <span class="text-muted"> title:</span><br>${el.title}</h5>
+        <h5 class="text-center"> <span class="text-muted"> due date:</span><br>23-3-2020</h5>
+        <h5 class="text-center"> <span class="text-muted"> priority:</span><br>${el.priority}</h5>
+        <h5 class="text-center text-break"> <span class="text-muted"> description:</span><br>${el.description}</h5>
+        <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">new task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger"> detete project
+        </button></span>`;
+      });
+      project.addEventListener('click', () => { getElement('#current-p').innerText = `${project.innerText}`; getElement('#current-tasks').innerHTML = currentTasks; });
     });
   }
 
