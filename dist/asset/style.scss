@@ -1,16 +1,15 @@
 body{
   overflow-x: hidden;
-  position: relative;
 }
 #task-modal {
-  position: absolute;
+  position:absolute;
   margin-top: 5vh;
-  z-index: 100;
+  z-index: 1;
   display: none;
 }
 
 #form {
-  border: 3px solid rgb(56, 56, 56);
+  border: 3px solid rgb(82, 82, 82);
   background-color: white;
 }
 

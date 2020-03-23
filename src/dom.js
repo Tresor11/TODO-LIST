@@ -10,15 +10,16 @@ const dom = (function () {
 
 
   function renderModal() {
-    // const butttons = document.querySelectorAll('.new-t');
-    // butttons.forEach(el=>{el.addEventListener('click',()=>{alert("hello")})});
-    alert('hello');
+    return getElement('#new-t').addEventListener('click', show );
   }
 
-  function getId(id) {
-    const intId = getElement(id).id;
-    // eslint-disable-next-line radix
-    return parseInt(intId);
+  function hideModal() {
+    return getElement('#cancel').addEventListener('click', hide );
+  }
+
+  function getExt(id) {
+    const text = getElement(id).innerText;
+    return text;
   }
 
   function render(id, cont) {
@@ -30,7 +31,7 @@ const dom = (function () {
     projects.forEach(project => {
       const content = ` <div class="py-2">
       <h3 class="text-primary text-center">${project.innerText} tasks</h3>
-      <span class="col-6 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary new-t">new task <i
+      <span class="col-6 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary" id="new-t">new task <i
             class="fas fa-arrow-circle-down    "></i> </button> <button class="btn btn-outline-danger"> detete project
           <i class="fas fa-recycle    "></i></button></span>
     </div>`;
@@ -57,12 +58,13 @@ const dom = (function () {
 
   return {
     getElement,
-    getId,
+    getExt,
     render,
     hide,
     show,
     renderProject,
     renderModal,
+    hideModal,
   };
 }());
 

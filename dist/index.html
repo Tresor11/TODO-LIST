@@ -25,7 +25,7 @@
       </div>
     </form>
     <div id="task-modal" class="col-12 row">
-      <form action="" class="col-3 m-auto bg-white p-3 border border-dark" id="form">
+      <form action="" class="col-3 m-auto p-3" id="form">
         <div class="form-group">
           <label for="title">title</label>
           <input type="text" name="title" id="title" class="form-control" placeholder="title" aria-describedby="helpId"
@@ -52,8 +52,8 @@
           </select>
         </div>
         <div class="form-group d-flex justify-content-around">
-          <button type="button" class="btn btn-outline-danger">cancel</button>
-          <button type="button" class="btn btn-outline-primary">Add
+          <button type="button" class="btn btn-outline-danger" id="cancel">cancel</button>
+          <button type="button" class="btn btn-outline-primary" id="create-t">Add
             task</button>
         </div>
       </form>
@@ -62,25 +62,25 @@
   <section class="row">
     <h4 class="col-6 text-center">projects</h4>
     <h4 class="col-6 text-center">tasks</h4>
-    <div class=" py-4 col-6 sticky-top" id="p-titles">
+    <div class=" py-4 col-6" id="p-titles">
     </div>
     <div class="py-4 col-6" id="p-tasks">
 
       <div class="py-2">
-        <h3 class="text-primary text-center">First project tasks</h3>
-        <span class="col-6 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">new task <i
+        <h3 class="text-primary text-center" id="current-p">testing</h3>
+        <span class="col-6 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary" id="new-t">new task <i
               class="fas fa-arrow-circle-down    "></i> </button> <button class="btn btn-outline-danger"> detete project
-            <i class="fas fa-recycle    "></i></button></span>
+            <i class="fas fa-recycle "></i></button></span>
       </div>
 
-      <div class="py-2 task-div">
+      <!-- <div class="py-2 task-div">
         <h5 class="text-center"> <span class="text-muted"> title:</span><br>Go to school</h5>
         <h5 class="text-center"> <span class="text-muted"> due date:</span><br>23-3-2020</h5>
         <h5 class="text-center"> <span class="text-muted"> priority:</span><br>Important</h5>
         <h5 class="text-center text-break"> <span class="text-muted"> description:</span><br>bababababababababaccccccccccccccccccccccccccccbabababababbabababababababababab</h5>
         <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">new task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger"> detete project
         </button></span>
-      </div>
+      </div> -->
       
     </div>
   </section>

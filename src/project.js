@@ -1,6 +1,22 @@
 import dom from './dom';
 
-const myTask = [{ title: 'testing', id: 1 }, { title: 'test', id: 2 }];
+const myTask = [{
+  title: 'testing',
+  id: 1,
+  tasks: [],
+  addTask: (task) => {
+    task.id = myTask.tasks.length;
+    myTask.tasks.push(task);
+  },
+}, {
+  title: 'test',
+  id: 1,
+  tasks: [],
+  addTask: (task) => {
+    task.id = myTask.tasks.length;
+    myTask.tasks.push(task);
+  },
+}];
 
 function project(projectTitle, PorjectId) {
   const title = projectTitle;
