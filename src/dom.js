@@ -1,7 +1,9 @@
 /* eslint-disable func-names */
 /* eslint-disable-next-line func-names */
 /* eslint-disable-next-line no-unused-vars */
-import { storeProject, getProject } from './storage';
+import {
+  storeProject, getProject, currentP, getCurrentP,
+} from './storage';
 import {
   project, createProject, myTask, findProject,
 } from './project';
@@ -26,26 +28,31 @@ const dom = (function () {
     return text;
   }
 
-
-  function render(id, cont) {
-    getElement(id).innerText = cont;
-  }
-
   function renderTasks() {
-    const projects = document.querySelectorAll('#p-titles h3');
-    projects.forEach(project => {
-      const currentTasks = findProject(project.innerText).tasks;
-      let currentHtml = '';
-      currentTasks.forEach(element => {
-        currentHtml += `<div class="py-2 task-div">
+    let currentHtml = '';
+    getCurrentP().tasks.forEach(element => {
+      currentHtml += `<div class="py-2 task-div">
         <h5 class="text-center"> <span class="text-muted"> title:</span><br>${element.title}</h5>
         <h5 class="text-center"> <span class="text-muted"> due date:</span><br>${element.date}</h5>
         <h5 class="text-center text-break"> <span class="text-muted"> description:</span>${element.description}</h5>
         <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">edit task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger" onclick="deleteTask(${element.id})"> detete Task
         </button></span>
       </div>`;
-      });
-      project.addEventListener('click', () => { getElement('#current-p').innerText = `${project.innerText}`; getElement('#current-tasks').innerHTML = currentHtml; });
+    });
+    getElement('#current-p').innerText = getCurrentP().title;
+    getElement('#current-tasks').innerHTML = currentHtml;
+  }
+
+  function render(id, cont) {
+    getElement(id).innerText = cont;
+  }
+
+  function setCurrent() {
+    const projects = document.querySelectorAll('#p-titles h3');
+    projects.forEach(project => {
+      const currentTasks = findProject(project.innerText);
+      currentP(currentTasks);
+      project.addEventListener('click', () => { getElement('#current-p').innerText = `${project.innerText}`; currentP(currentTasks); renderTasks(); console.log(getCurrentP()); });
     });
   }
 
@@ -55,7 +62,7 @@ const dom = (function () {
       content += `<h3 class="project ml-2 py-2 text-center ">${element.title}</h3>`;
     });
     document.getElementById(id).innerHTML = content;
-    renderTasks();
+    setCurrent();
   }
 
   function hide() {
@@ -72,8 +79,9 @@ const dom = (function () {
     render,
     hide,
     show,
-    renderTasks,
+    setCurrent,
     renderProject,
+    renderTasks,
     renderModal,
     hideModal,
   };

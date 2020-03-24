@@ -2,7 +2,9 @@ import dom from './dom';
 import {
   project, createProject, myTask, deleteProject, findProject, addTask,
 } from './project';
-import { storeProject, getProject } from './storage';
+import {
+  storeProject, getProject, currentP, getCurrentP,
+} from './storage';
 
 function task(taskTitle, taskDescription, taskPriority, taksDate) {
   const title = taskTitle;
@@ -34,21 +36,23 @@ function newTask() {
   const currentProject = findProject(dom.getExt());
   const newTask = task(title, description, priority, date);
   addTask(currentProject, newTask);
-  dom.hide();
   storeProject(myTask);
-  dom.renderTasks();
+  currentP(currentProject);
+  console.log("created");
+  dom.hide();
 }
-window.deleteTask = function(id) {
+window.deleteTask = function (id) {
   const task = findTask(id);
   const proj = findProject(dom.getExt());
   proj.tasks.splice(proj.tasks.indexOf(task), 1);
   storeProject(myTask);
+  currentP(proj);
   location.reload(true);
-}
+};
 
-window.editTask=function(id){
-  
-}
+window.editTask = function (id) {
+
+};
 export {
   task, newTask, findTask,
 };

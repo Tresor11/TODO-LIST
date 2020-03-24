@@ -4,7 +4,7 @@ body {
 
 #task-modal {
   position: absolute;
-  margin-top: 5vh;
+  margin-top: 1vh;
   z-index: 1;
   display: none;
 }
