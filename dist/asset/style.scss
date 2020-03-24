@@ -1,25 +1,25 @@
-body {
+body{
   overflow-x: hidden;
 }
-
 #task-modal {
-  position: absolute;
+  position:absolute;
   margin-top: 5vh;
   z-index: 1;
   display: none;
 }
 
 #form {
-  border: 3px solid #525252;
+  border: 3px solid rgb(82, 82, 82);
   background-color: white;
 }
 
-.project {
+.project{
   display: block;
   font-family: 'Courier New', Courier, monospace;
   border: 1px solid rgba(128, 128, 128, 0.651);
-  -webkit-box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.75);
   transition: background 1s;
   -webkit-transition: background 1s;
   -moz-transition: background 1s;
@@ -27,22 +27,21 @@ body {
   -o-transition: background 1s;
 }
 
-.done {
+.done{
   background-color: rgba(3, 20, 170, 0.336);
+  h5:first-child{
+    text-decoration: line-through;
+  }
 }
 
-.done h5:first-child {
-  text-decoration: line-through;
-}
-
-.task-div {
+.task-div{
   font-family: 'Courier New', Courier, monospace;
-  -webkit-box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 19px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 19px -6px rgba(0,0,0,0.75);
   border: 1px solid rgba(128, 128, 128, 0.651);
 }
 
-.project:hover {
-  background: #b8b8b8;
+.project:hover{
+  background: rgb(184, 184, 184);
 }
-/*# sourceMappingURL=style.css.map */
