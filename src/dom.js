@@ -22,7 +22,7 @@ const dom = (function () {
   function hideModal() {
     return getElement('#cancel').addEventListener('click', hide);
   }
-
+  
   function getExt() {
     const text = getElement('#current-p').innerText;
     return text;
@@ -35,7 +35,7 @@ const dom = (function () {
         <h5 class="text-center"> <span class="text-muted"> title:</span><br>${element.title}</h5>
         <h5 class="text-center"> <span class="text-muted"> due date:</span><br>${element.date}</h5>
         <h5 class="text-center text-break"> <span class="text-muted"> description:</span>${element.description}</h5>
-        <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">edit task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger" onclick="deleteTask(${element.id})"> detete Task
+        <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary" onclick="editTask(${element.id})">edit task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger" onclick="deleteTask(${element.id})"> detete Task
         </button></span>
       </div>`;
     });

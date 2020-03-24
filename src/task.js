@@ -5,6 +5,7 @@ import {
 import {
   storeProject, getProject, currentP, getCurrentP,
 } from './storage';
+import { createForm } from './modals';
 
 function task(taskTitle, taskDescription, taskPriority, taksDate) {
   const title = taskTitle;
@@ -38,7 +39,7 @@ function newTask() {
   addTask(currentProject, newTask);
   storeProject(myTask);
   currentP(currentProject);
-  console.log("created");
+  console.log('created');
   dom.hide();
 }
 window.deleteTask = function (id) {
@@ -51,8 +52,31 @@ window.deleteTask = function (id) {
 };
 
 window.editTask = function (id) {
-
+  dom.getElement('#task-modal').innerHTML = createForm(id);
+  dom.show();
 };
+
+window.update = function (id) {
+  const currentTask = findTask(id);
+  const proj = findProject(dom.getExt());
+
+  const title = dom.getElement('#title').value;
+  const description = dom.getElement('#description').value;
+  const priority = dom.getElement('#priority').value;
+  const date = dom.getElement('#date').value;
+  const newTask = task(title, description, priority, date);
+  newTask.id = currentTask.id;
+  proj.tasks.splice(proj.tasks.indexOf(currentTask), 1, newTask);
+  storeProject(myTask);
+  currentP(proj);
+  location.reload(true);
+};
+
+
+window.cancel = function () {
+  location.reload(true);
+};
+
 export {
   task, newTask, findTask,
 };
