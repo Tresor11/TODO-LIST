@@ -63,7 +63,7 @@ const dom = (function () {
     projects.forEach(project => {
       const currentTasks = findProject(project.innerText);
       currentP(currentTasks);
-      project.addEventListener('click', () => { getElement('#current-p').innerText = `${project.innerText}`; currentP(currentTasks); renderTasks(); console.log(getCurrentP()); });
+      project.addEventListener('click', () => { getElement('#current-p').innerText = `${project.innerText}`; currentP(currentTasks); renderTasks(); });
     });
   }
 

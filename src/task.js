@@ -8,7 +8,7 @@ import {
 import {
   storeProject, currentP,
 } from './storage';
-import { createForm } from './modals';
+import createForm from './modals';
 
 function task(taskTitle, taskDescription, taskPriority, taksDate) {
   const title = taskTitle;
