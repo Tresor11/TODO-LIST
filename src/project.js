@@ -1,5 +1,5 @@
 import dom from './dom';
-import { storeProject, getProject } from './storage';
+import {storeProject, getProject, currentP, getCurrentP,} from './storage';
 import {createForm} from './modals';
 
 let myTask = [];
@@ -10,6 +10,7 @@ let myTask = [];
     myTask = getProject();
   } else {
     const test = project('general', 1);
+    currentP(test);
     myTask.push(test);
   }
 }());
