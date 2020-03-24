@@ -13,7 +13,7 @@ The main purpose of this project is to make an implemantation of a Todo list. Th
 - A user can delete a task from the project array
 
 ## Live link
-[TODO_LIST](https://raw.githack.com/Tresor11/TODO-LISt/features/index.html)
+[TODO_LIST](https://rawcdn.githack.com/Tresor11/TODO-LIST/22e07226da864e479aa021c5b744642fa68869f3/dist/index.html)
 
 ## Prerequisites
 To comfortably use this project, prior knowledge of the following is ideal
