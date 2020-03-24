@@ -22,7 +22,7 @@ const dom = (function () {
   function hideModal() {
     return getElement('#cancel').addEventListener('click', hide);
   }
-  
+
   function getExt() {
     const text = getElement('#current-p').innerText;
     return text;
@@ -31,15 +31,17 @@ const dom = (function () {
   function renderTasks() {
     let currentHtml = '';
     getCurrentP().tasks.forEach(element => {
-      currentHtml += `<div class="py-2 task-div">
+      currentHtml += `<div class="py-2 task-div ${element.status ? 'done' : 'not-yet'}">
         <h5 class="text-center"> <span class="text-muted"> title:</span><br>${element.title}</h5>
         <h5 class="text-center"> <span class="text-muted"> due date:</span><br>${element.date}</h5>
+        <h5 class="text-center"> <span class="text-muted"> priority:</span><br>${element.priority}</h5>
         <h5 class="text-center text-break"> <span class="text-muted"> description:</span>${element.description}</h5>
-        <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary" onclick="editTask(${element.id})">edit task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger" onclick="deleteTask(${element.id})"> detete Task
+        <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary" onclick="editTask(${element.id})">edit task</button> <button class="btn btn-outline-primary"  onclick="doneTask(${element.id})">done/undone</button> <button class="btn btn-outline-danger" onclick="deleteTask(${element.id})"> detete Task
         </button></span>
       </div>`;
     });
     getElement('#current-p').innerText = getCurrentP().title;
+    getElement('#current-p').classList = 'text-primary text-center';
     getElement('#current-tasks').innerHTML = currentHtml;
   }
 

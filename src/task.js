@@ -10,11 +10,12 @@ import { createForm } from './modals';
 function task(taskTitle, taskDescription, taskPriority, taksDate) {
   const title = taskTitle;
   const id = 0;
+  const status = false;
   const description = taskDescription;
   const priority = taskPriority;
   const date = taksDate;
   return {
-    title, id, description, priority, date,
+    title, id, description, priority, date, status,
   };
 }
 
@@ -39,7 +40,6 @@ function newTask() {
   addTask(currentProject, newTask);
   storeProject(myTask);
   currentP(currentProject);
-  console.log('created');
   dom.hide();
 }
 window.deleteTask = function (id) {
@@ -48,7 +48,20 @@ window.deleteTask = function (id) {
   proj.tasks.splice(proj.tasks.indexOf(task), 1);
   storeProject(myTask);
   currentP(proj);
-  location.reload(true);
+  dom.renderTasks();
+};
+
+window.doneTask = function (id) {
+  const task = findTask(id);
+  const proj = findProject(dom.getExt());
+  proj.tasks.forEach(el => {
+    if (el === task) {
+      el.status = !el.status;
+    }
+  });
+  storeProject(myTask);
+  currentP(proj);
+  dom.renderTasks();
 };
 
 window.editTask = function (id) {
@@ -66,10 +79,12 @@ window.update = function (id) {
   const date = dom.getElement('#date').value;
   const newTask = task(title, description, priority, date);
   newTask.id = currentTask.id;
+  newTask.status = currentTask.status;
   proj.tasks.splice(proj.tasks.indexOf(currentTask), 1, newTask);
   storeProject(myTask);
   currentP(proj);
-  location.reload(true);
+  window.cancel();
+  dom.renderTasks();
 };
 
 

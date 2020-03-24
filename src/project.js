@@ -1,6 +1,8 @@
 import dom from './dom';
-import {storeProject, getProject, currentP, getCurrentP,} from './storage';
-import {createForm} from './modals';
+import {
+  storeProject, getProject, currentP, getCurrentP,
+} from './storage';
+import { createForm } from './modals';
 
 let myTask = [];
 
@@ -54,8 +56,14 @@ const findProject = (title) => {
 
 const deleteProject = () => {
   const proj = findProject(dom.getExt());
+  if (proj.title === 'general') {
+    dom.getElement('#current-p').classList='text-danger text-center';
+    dom.getElement('#current-p').innerText = "Can't delete general project";
+    return false;
+  }
   myTask.splice(myTask.indexOf(proj), 1);
   storeProject(myTask);
+  currentP(findProject('general'));
   location.reload(true);
 };
 export {

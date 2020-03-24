@@ -4,7 +4,7 @@ body {
 
 #task-modal {
   position: absolute;
-  margin-top: 1vh;
+  margin-top: 5vh;
   z-index: 1;
   display: none;
 }
@@ -25,6 +25,14 @@ body {
   -moz-transition: background 1s;
   -ms-transition: background 1s;
   -o-transition: background 1s;
+}
+
+.done {
+  background-color: rgba(3, 20, 170, 0.336);
+}
+
+.done h5:first-child {
+  text-decoration: line-through;
 }
 
 .task-div {
