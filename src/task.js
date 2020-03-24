@@ -1,9 +1,12 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable import/no-cycle */
+/* eslint-disable func-names */
 import dom from './dom';
 import {
-  project, createProject, myTask, deleteProject, findProject, addTask,
+  myTask, findProject, addTask,
 } from './project';
 import {
-  storeProject, getProject, currentP, getCurrentP,
+  storeProject, currentP,
 } from './storage';
 import { createForm } from './modals';
 

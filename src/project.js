@@ -1,11 +1,23 @@
+/* eslint-disable import/no-mutable-exports */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable import/no-cycle */
+/* eslint-disable func-names */
+
 import dom from './dom';
 import {
-  storeProject, getProject, currentP, getCurrentP,
+  storeProject, getProject, currentP,
 } from './storage';
-import { createForm } from './modals';
 
 let myTask = [];
 
+function project(projectTitle, PorjectId) {
+  const title = projectTitle;
+  const id = PorjectId;
+  const tasks = [];
+  return {
+    title, id, tasks,
+  };
+}
 
 (function () {
   if (getProject()) {
@@ -16,15 +28,6 @@ let myTask = [];
     myTask.push(test);
   }
 }());
-
-function project(projectTitle, PorjectId) {
-  const title = projectTitle;
-  const id = PorjectId;
-  const tasks = [];
-  return {
-    title, id, tasks,
-  };
-}
 
 const addTask = (project, task) => {
   task.id = project.tasks.length;
@@ -57,7 +60,7 @@ const findProject = (title) => {
 const deleteProject = () => {
   const proj = findProject(dom.getExt());
   if (proj.title === 'general') {
-    dom.getElement('#current-p').classList='text-danger text-center';
+    dom.getElement('#current-p').classList = 'text-danger text-center';
     dom.getElement('#current-p').innerText = "Can't delete general project";
     return false;
   }
@@ -65,6 +68,7 @@ const deleteProject = () => {
   storeProject(myTask);
   currentP(findProject('general'));
   location.reload(true);
+  return true;
 };
 export {
   project, createProject, myTask, deleteProject, findProject, addTask,

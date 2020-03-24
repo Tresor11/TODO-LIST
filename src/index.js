@@ -1,6 +1,9 @@
-import { project, createProject, myTask,deleteProject } from './project';
-import { task, newTask } from './task';
+import {
+  createProject, myTask, deleteProject,
+} from './project';
+import { newTask } from './task';
 import dom from './dom';
+
 dom.renderTasks();
 dom.renderProject(myTask, 'p-titles');
 const button = dom.getElement('#create-p');

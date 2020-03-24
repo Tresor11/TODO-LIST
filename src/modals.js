@@ -1,10 +1,10 @@
+/* eslint-disable import/no-mutable-exports */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable import/no-cycle */
+/* eslint-disable func-names */
 import {
-  project, createProject, myTask, findProject,
-} from './project';
-
-import{
-  task, newTask, findTask,
-} from './task'
+  findTask,
+} from './task';
 
 const createForm = (id) => {
   const task = findTask(id);
@@ -41,4 +41,4 @@ const createForm = (id) => {
       </form>`;
   return form;
 };
-export { createForm };
+export default createForm;

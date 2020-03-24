@@ -1,17 +1,26 @@
+/* eslint-disable import/no-mutable-exports */
+/* eslint-disable no-restricted-globals */
+/* eslint-disable import/no-cycle */
 /* eslint-disable func-names */
-/* eslint-disable-next-line func-names */
-/* eslint-disable-next-line no-unused-vars */
 import {
-  storeProject, getProject, currentP, getCurrentP,
+  currentP, getCurrentP,
 } from './storage';
 import {
-  project, createProject, myTask, findProject,
+  findProject,
 } from './project';
 
 
 const dom = (function () {
   function getElement(property) {
     return document.querySelector(property);
+  }
+
+  function hide() {
+    getElement('#task-modal').style.display = 'none';
+  }
+
+  function show() {
+    getElement('#task-modal').style.display = 'block';
   }
 
 
@@ -65,14 +74,6 @@ const dom = (function () {
     });
     document.getElementById(id).innerHTML = content;
     setCurrent();
-  }
-
-  function hide() {
-    getElement('#task-modal').style.display = 'none';
-  }
-
-  function show() {
-    getElement('#task-modal').style.display = 'block';
   }
 
   return {

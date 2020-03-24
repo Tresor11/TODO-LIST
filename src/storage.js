@@ -6,7 +6,7 @@ function storeProject(param) {
 function currentP(params) {
   const currentP = JSON.stringify(params);
   window.localStorage.setItem('currentP', currentP);
-  return(currentP);
+  return (currentP);
 }
 
 function getCurrentP() {
