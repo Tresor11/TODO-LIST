@@ -50,7 +50,7 @@ const dom = (function () {
       </div>`;
     });
     getElement('#current-p').innerText = getCurrentP().title;
-    getElement('#current-p').classList = 'text-primary text-center';
+    getElement('#message').innerText = '';
     getElement('#current-tasks').innerHTML = currentHtml;
   }
 

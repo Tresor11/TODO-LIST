@@ -60,8 +60,7 @@ const findProject = (title) => {
 const deleteProject = () => {
   const proj = findProject(dom.getExt());
   if (proj.title === 'general') {
-    dom.getElement('#current-p').classList = 'text-danger text-center';
-    dom.getElement('#current-p').innerText = "Can't delete general project";
+    dom.getElement('#message').innerText = "Can't delete general project";
     return false;
   }
   myTask.splice(myTask.indexOf(proj), 1);
