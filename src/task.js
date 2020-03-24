@@ -4,9 +4,9 @@ import {
 } from './project';
 import { storeProject, getProject } from './storage';
 
-function task(taskTitle, taskId, taskDescription, taskPriority, taksDate) {
+function task(taskTitle, taskDescription, taskPriority, taksDate) {
   const title = taskTitle;
-  const id = taskId;
+  const id = 0;
   const description = taskDescription;
   const priority = taskPriority;
   const date = taksDate;
@@ -18,13 +18,15 @@ function newTask() {
   const title = dom.getElement('#title').value;
   const description = dom.getElement('#description').value;
   const priority = dom.getElement('#priority').value;
-  // const date = dom.getElement('#date').value;
+  const date = dom.getElement('#date').value;
   const currentProject = findProject(dom.getExt());
-  const newTask = task(title, description, priority, '2020-12-11');
+  const newTask = task(title, description, priority, date);
   addTask(currentProject, newTask);
   dom.hide();
   storeProject(myTask);
-  console.log(currentProject.tasks);
+  dom.renderTasks();
 }
-
-export { task, newTask };
+function deleteTask() {
+  // const deltask = 
+}
+export { task, newTask, deleteTask};

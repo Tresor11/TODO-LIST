@@ -30,10 +30,9 @@ const addTask = (project, task) => {
 function createProject() {
   const title = dom.getElement('#project-title').value;
   const newProject = project(title, myTask.length);
-  if (myTask.every(el => el.title !== newProject.title)) {
+  if (myTask.every(el => el.title !== newProject.title) && (title !== '')) {
     myTask.push(newProject);
     storeProject(myTask);
-    console.log(localStorage);
     dom.renderProject(getProject(), 'p-titles');
     return true;
   }
@@ -56,7 +55,6 @@ const deleteProject = () => {
   myTask.splice(myTask.indexOf(proj), 1);
   storeProject(myTask);
   location.reload(true);
-  console.log("deleted");
 };
 export {
   project, createProject, myTask, deleteProject, findProject, addTask,

@@ -8,7 +8,6 @@ const button2 = dom.getElement('#create-t');
 const button3 = dom.getElement('#delete-p');
 button.addEventListener('click', createProject);
 button2.addEventListener('click', newTask);
-button3.addEventListener('click', deleteProject)
+button3.addEventListener('click', deleteProject);
 dom.renderModal();
 dom.hideModal();
-
