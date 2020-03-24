@@ -63,4 +63,3 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 - [Ordin](https://www.theodinproject.com/courses/javascript/lessons/todo-list)
-- [Sololearn](https://www.sololearn.com/Play/JavaScript)
