@@ -1,10 +1,11 @@
 /* eslint-disable func-names */
-// eslint-disable-next-line func-names
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable-next-line func-names */
+/* eslint-disable-next-line no-unused-vars */
+import { storeProject, getProject } from './storage';
 import {
   project, createProject, myTask, findProject,
 } from './project';
-import { storeProject, getProject } from './storage';
+
 
 const dom = (function () {
   function getElement(property) {
@@ -40,7 +41,7 @@ const dom = (function () {
         <h5 class="text-center"> <span class="text-muted"> title:</span><br>${element.title}</h5>
         <h5 class="text-center"> <span class="text-muted"> due date:</span><br>${element.date}</h5>
         <h5 class="text-center text-break"> <span class="text-muted"> description:</span>${element.description}</h5>
-        <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">edit task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger"> detete Task
+        <span class="col-10 m-auto d-flex justify-content-around"> <button class="btn btn-outline-primary">edit task</button> <button class="btn btn-outline-primary">done/undone</button> <button class="btn btn-outline-danger" onclick="deleteTask(${element.id})"> detete Task
         </button></span>
       </div>`;
       });
